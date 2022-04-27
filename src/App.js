@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Avatar from "./components/Avater";
+import Card from "./components/Card"
+import Contacts from "./contacts"
+
+function CreateCard(contact){
+  return (
+    <Card 
+      name={contact.name}
+      mail={contact.mail}
+      phone={contact.phone}
+      image={contact.imageUrl}
+    />
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="body">
+      <h1 align="center">My Contacts</h1>
+      <div className="my-image">
+        <Avatar image="data:image/jpeg;base64,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"/>
+      </div>
+      {Contacts.map(CreateCard)}
     </div>
   );
 }
